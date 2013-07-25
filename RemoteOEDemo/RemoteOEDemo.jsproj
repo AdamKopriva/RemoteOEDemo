@@ -64,6 +64,7 @@
     <Content Include="images\storelogo.png" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <Content Include="js\HomeView.js" />
     <Content Include="js\main.js" />
     <Content Include="js\storage\ls-store.js" />
     <Content Include="js\storage\memory-store.js" />
