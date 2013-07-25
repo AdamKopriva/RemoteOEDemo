@@ -14,21 +14,30 @@
     <!-- RemoteOEDemo references -->
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/default.js"></script>
+
+
+
 </head>
 <body>
 
-    <p>Content goes here</p>
+    <script src="lib/handlebars.js"></script>
 
-    <script type="text/javascript">
+    <script id="home-tpl" type="text/x-handlebars-template">
+        <div class='header'><h1>Home</h1></div>
+        <div class='search-bar'><input class='search-key' type="text"/></div>
+        <ul class='employee-list'></ul>
+    </script>
 
-        console.log("Subscribing...");
-        document.addEventListener("deviceready", function () {
-
-            navigator.notification.alert("The device is ready!");
-
-        });
+    <script id="employee-li-tpl" type="text/x-handlebars-template">
+        {{#.}}
+        <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+        {{/.}}
 
     </script>
 
+    <script src="lib/jquery-1.8.2.min.js"></script>
+    <script src="js/storage/memory-store.js"></script>
+    <script src="js/main.js"></script>
+    
 </body>
 </html>
