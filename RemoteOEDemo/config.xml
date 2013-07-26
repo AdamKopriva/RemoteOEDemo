@@ -27,7 +27,5 @@
   <feature name="http://api.phonegap.com/1.0/notification"/>
 
   <icon src="Icon.png" />
-
-  <gap:plugin name="Geolocation" value="org.apache.cordova.GeoBroker"  />
   
 </widget>

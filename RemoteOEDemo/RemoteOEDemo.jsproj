@@ -75,6 +75,7 @@
     <Content Include="img\Toby_Flenderson.jpg" />
     <Content Include="img\unknown.jpg" />
     <Content Include="index.html" />
+    <Content Include="index2.html" />
     <Content Include="img\logo.png" />
     <Content Include="img\smalllogo.png" />
     <Content Include="img\splashscreen.png" />
