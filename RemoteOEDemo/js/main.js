@@ -34,7 +34,8 @@ var app = {
 
     route: function() {
         var hash = window.location.hash;
-        if (!hash) {
+        if (!hash || 
+            hash == "#") {
             $('body').html(new HomeView(this.store).render().el);
             return;
         }
