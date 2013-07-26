@@ -1,44 +1,59 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
-    <title>Device Properties Example</title>
+<head>
+    <meta charset="utf-8" />
+    <title>RemoteOEDemo</title>
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
+<!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
 
-        // Wait for device API libraries to load
-        //
-        document.addEventListener("deviceready", onDeviceReady, false);
+    <script src="cordova.js"></script>
 
-        var watchID = null;
+    <!-- RemoteOEDemo references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="css/source-sans-pro.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
 
-        // device APIs are available
-        //
-        function onDeviceReady() {
-            // Throw an error if no update is received every 30 seconds
-            var options = { timeout: 30000 };
-            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-        }
+</head>
+<body>
+    <script src="lib/handlebars.js"></script>
 
-        // onSuccess Geolocation
-        //
-        function onSuccess(position) {
-            var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
-                                'Longitude: ' + position.coords.longitude + '<br />' +
-                                '<hr />' + element.innerHTML;
-        }
-
-        // onError Callback receives a PositionError object
-        //
-        function onError(error) {
-            alert('code: ' + error.code + '\n' +
-                  'message: ' + error.message + '\n');
-        }
-
+    <script id="home-tpl" type="text/x-handlebars-template">
+        <div class='header'><h1>Home</h1></div>
+        <div class='search-bar'><input class='search-key' type="search"/></div>
+        <div class="scroll"><ul class='employee-list'></ul></div>
     </script>
-  </head>
-  <body>
-    <p id="geolocation">Watching geolocation...</p>
-  </body>
+
+    <script id="employee-li-tpl" type="text/x-handlebars-template">
+        {{#.}}
+        <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+        {{/.}}
+    </script>
+
+    <script id="employee-tpl" type="text/x-handlebars-template">
+        <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
+        <div class='details'>
+            <img class='employee-image' src='img/{{firstName}}_{{lastName}}.jpg' />
+            <h1>{{firstName}} {{lastName}}</h1>
+            <h2>{{title}}</h2>
+            <span class="location"></span>
+            <ul>
+                <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
+                <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
+                <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
+                <li><a href="#" class="add-location-btn location">Add Location</a></li>
+            </ul>
+        </div>
+    </script>
+
+    <script src="lib/jquery-1.8.2.min.js"></script>
+    <script src="js/storage/memory-store.js"></script>
+    <script src="js/HomeView.js"></script>
+    <script src="js/EmployeeView.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
 </html>
