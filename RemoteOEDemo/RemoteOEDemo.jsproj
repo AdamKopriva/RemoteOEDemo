@@ -57,6 +57,7 @@
     <Content Include="cordova.js" />
     <Content Include="css\source-sans-pro.js" />
     <Content Include="css\styles.css" />
+    <Content Include="Icon.png" />
     <Content Include="img\Andy_Bernard.jpg" />
     <Content Include="img\Angela_Martin.jpg" />
     <Content Include="img\Creed_Bratton.jpg" />
