@@ -37,14 +37,16 @@
         <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
         <div class='details'>
             <img class='employee-image' src='img/{{firstName}}_{{lastName}}.jpg' />
-            <h1>{{firstName}} {{lastName}}</h1>
-            <h2>{{title}}</h2>
+
+            <h1><a>{{firstName}} {{lastName}}</a></h1>
+            <h2><a>{{title}}</a></h2> 
             <span class="location"></span>
             <ul>
                 <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
                 <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
                 <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
-                <li><a href="#" class="add-location-btn location">Add Location</a></li>
+                <li><a href="#" class="add-location-btn">Add Location</a></li>
+                <li><a href="#" class="change-pic-btn">Change Picture</a></li>
             </ul>
         </div>
     </script>
